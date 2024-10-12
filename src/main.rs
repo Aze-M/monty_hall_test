@@ -7,7 +7,7 @@ use rngs::ThreadRng;
 fn test_win_case(_mode: i8,_rng_engine: &mut ThreadRng) -> Result<i32> {
     //Three doors
     let mut _doors_unopened = vec![0,1,2];
-    
+
     //Pick a winner and pick another door
     let _range = 0.._doors_unopened.len() as i32;
     let _door_winner = _rng_engine.gen_range::<i32, Range<i32>>(_range.clone());
@@ -26,6 +26,7 @@ fn test_win_case(_mode: i8,_rng_engine: &mut ThreadRng) -> Result<i32> {
         );
         let _door_opened = _doors_to_open[0];
 
+        //we switch to the door that wasn't picked or opened
         _doors_unopened.retain(
             |&door| 
                 door != _door_opened 
